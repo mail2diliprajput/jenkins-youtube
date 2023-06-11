@@ -5,10 +5,15 @@ pipeline{
             steps{
                 echo "========executing A========"
                 sh 'cal'
+                dir('/home/dilip') {
+    // some block
+                }
+                sh 'ls -la'
             }
         }
         stage("B"){
             steps{
+
                 echo "========executing B========"
                 sh 'nmcli'
             }
