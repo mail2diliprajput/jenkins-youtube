@@ -1,6 +1,5 @@
 pipeline{
-    agent{
-        label "node"
+    agent any
     }
     stages{
         stage("A"){
@@ -9,13 +8,13 @@ pipeline{
                 sh 'cal'
             }
         }
-        stage("A"){
+        stage("B"){
             steps{
                 echo "========executing B========"
                 sh 'nmcli'
             }
         }
-        stage("A"){
+        stage("C"){
             steps{
                 echo "========executing C========"
                 sh 'date'
