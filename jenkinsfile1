@@ -5,10 +5,8 @@ pipeline{
             steps{
                 echo "========executing A========"
                 sh 'cal'
-                dir('/home/dilip') {
-    // some block
-                }
-                sh 'ls -la'
+                sh '''cd /home/dilip
+                    ls -la'''
             }
         }
         stage("B"){
