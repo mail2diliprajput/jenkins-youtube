@@ -5,8 +5,6 @@ pipeline{
             steps{
                 echo "========executing A========"
                 sh 'cal'
-                sh '''cd /home/dilip
-                '''
                 sh 'ls -la'
             }
         }
