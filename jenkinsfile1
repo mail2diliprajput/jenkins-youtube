@@ -6,7 +6,8 @@ pipeline{
                 echo "========executing A========"
                 sh 'cal'
                 sh '''cd /home/dilip
-                    ls -la'''
+                '''
+                sh 'ls -la'
             }
         }
         stage("B"){
