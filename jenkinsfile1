@@ -8,28 +8,14 @@ pipeline{
                 echo "========executing A========"
             }
         }
-    }
+    }   
     stages{
         stage("A"){
             steps{
-                echo "========executing B========"
+                echo "========executing b========"
             }
         }
-    }
-    stages{
-        stage("A"){
-            steps{
-                echo "========executing C========"
-            }
-        }
-    }
-    stages{
-        stage("A"){
-            steps{
-                echo "========executing D========"
-            }
-        }
-    }
+    }    
     post{
         always{
             echo "========always========"
