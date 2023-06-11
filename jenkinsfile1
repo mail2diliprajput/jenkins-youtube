@@ -1,30 +1,25 @@
 pipeline{
-    agent any
+    agent{
+        label "node"
+    }
     stages{
         stage("A"){
             steps{
                 echo "========executing A========"
-                sh 'nmcli'
+                sh 'cal'
             }
-            
         }
-    }
-    stages{
         stage("A"){
             steps{
                 echo "========executing B========"
-                sh 'cal'
+                sh 'nmcli'
             }
-            
         }
-    }
-    stages{
         stage("A"){
             steps{
                 echo "========executing C========"
-                sh 'ls -la /root'
+                sh 'date'
             }
-            
         }
     }
     post{
