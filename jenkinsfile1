@@ -2,40 +2,43 @@ pipeline{
     agent{
         label "node"
     }
-        stages{
-            stage("A"){
-                steps{
-                    echo "========executing A========"
-                    sh 'nmcli'
-                }  
+    stages{
+        stage("A"){
+            steps{
+                echo "========executing A========"
             }
         }
-        stages{
-            stage("B"){
-                steps{
-                    echo "========executing AB========"
-                    sh 'hostnamectl'
-                }  
+    }
+    stages{
+        stage("A"){
+            steps{
+                echo "========executing B========"
             }
         }
-        stages{
-            stage("C"){
-                steps{
-                    echo "========executing ABC========"
-                    sh 'ls -la /etc'
-
-                }  
+    }
+    stages{
+        stage("A"){
+            steps{
+                echo "========executing C========"
             }
         }
-        post{
-            always{
-                echo "========always========"
+    }
+    stages{
+        stage("A"){
+            steps{
+                echo "========executing D========"
             }
-            success{
-                echo "========pipeline executed successfully ========"
-            }
-            failure{
-                echo "========pipeline execution failed========"
-            }
+        }
+    }
+    post{
+        always{
+            echo "========always========"
+        }
+        success{
+            echo "========pipeline executed successfully ========"
+        }
+        failure{
+            echo "========pipeline execution failed========"
+        }
     }
 }
