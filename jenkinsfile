@@ -1,0 +1,70 @@
+pipeline {
+    agent any
+    environment {
+        name = "gaurav_sharma"
+        BUILD_ID = "32"
+    }
+    parameters{
+                string(name: 'person', defaultValue: 'Dev Shrivastva', description:"Who are you")
+                booleanParam(name: 'isMale', defaultValue: 'true', description:"boolean Paramenter check for testing")
+    }
+    stages {
+        stage('Run a Command') {
+            steps {
+                sh '''
+                nmcli
+                pwd
+                date
+                pwd
+                ls -la
+                whoami
+                sleep 10
+                '''
+            }
+        }
+        stage('Envorment Variable') {
+            steps {
+                sh 'echo "${BUILD_ID}"'
+                sh 'echo "${name}"'
+                
+                
+            }
+        }
+        stage('code') {
+            environment {
+                name = "DILIP_RAPUT"
+                BUILD_ID = "340"
+            }
+            steps {
+                echo 'DEPLOY CODE OPTIMIZATION'
+                sh 'echo "${name}"'
+                sh 'echo "${BUILD_ID}"'
+            }
+        }
+        stage('Paramenters') {
+            steps {
+                sh 'echo "${person}"'
+                sh 'echo "${booleanParam}"'
+            }
+        }
+        stage('deploy on prod') {
+            steps {
+                sh 'echo "DEPLOY ON BUILD"'
+            }
+        }
+    }
+     post { 
+        always { 
+            echo 'I will always say Hello again!'
+            sh 'cal'
+        }
+        failure { 
+            echo 'Faulure !'
+            sh 'cal'
+        }
+        success { 
+            echo 'Success!'
+            sh 'cal'
+        }
+    }
+}
